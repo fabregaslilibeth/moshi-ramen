@@ -36,8 +36,8 @@ export default function Home() {
       <section id="home" className="relative py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Authentic Japanese
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 font-rocknroll">
+              MOSHI RAMEN
               <span className="text-orange-600 dark:text-orange-400 block">Ramen Experience</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -64,7 +64,7 @@ export default function Home() {
       <section id="features" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
               Why Choose Moshi Ramen?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
@@ -95,7 +95,7 @@ export default function Home() {
       <section id="services" className="py-20 bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
               Our Signature Bowls
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
@@ -150,7 +150,7 @@ export default function Home() {
       <section id="testimonials" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
               What Our Customers Say
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
@@ -223,7 +223,7 @@ export default function Home() {
       <section id="contact" className="py-20 bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
               Get In Touch
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
