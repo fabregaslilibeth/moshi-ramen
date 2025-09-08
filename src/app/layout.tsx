@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { 
+  Geist, 
+  Geist_Mono, 
+  RocknRoll_One,
+  Noto_Sans_JP,
+  Noto_Serif_JP,
+  Kosugi,
+  Kosugi_Maru,
+  M_PLUS_1p,
+  M_PLUS_Rounded_1c,
+  Reggae_One,
+  Train_One,
+  DotGothic16
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -10,6 +23,66 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const rocknRollOne = RocknRoll_One({
+  variable: "--font-rocknroll-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-sans-jp",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  variable: "--font-noto-serif-jp",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const kosugi = Kosugi({
+  variable: "--font-kosugi",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const kosugiMaru = Kosugi_Maru({
+  variable: "--font-kosugi-maru",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const mPlus1p = M_PLUS_1p({
+  variable: "--font-m-plus-1p",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const mPlusRounded1c = M_PLUS_Rounded_1c({
+  variable: "--font-m-plus-rounded-1c",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const reggaeOne = Reggae_One({
+  variable: "--font-reggae-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const trainOne = Train_One({
+  variable: "--font-train-one",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const dotGothic16 = DotGothic16({
+  variable: "--font-dotgothic16",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +98,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rocknRollOne.variable} ${notoSansJP.variable} ${notoSerifJP.variable} ${kosugi.variable} ${kosugiMaru.variable} ${mPlus1p.variable} ${mPlusRounded1c.variable} ${reggaeOne.variable} ${trainOne.variable} ${dotGothic16.variable} antialiased`}
       >
         {children}
       </body>
