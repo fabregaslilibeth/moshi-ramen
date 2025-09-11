@@ -1,6 +1,19 @@
-import Image from "next/image";
+'use client';
+
+import { useCartContext } from "@/context/CartContext";
+import { CartIcon } from "@/components/CartIcon";
+import { getProductBySku } from "@/data/products";
 
 export default function Home() {
+  const { addToCart } = useCartContext();
+
+  const handleAddToCart = (sku: string) => {
+    const product = getProductBySku(sku);
+    if (product) {
+      addToCart(product);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800">
       {/* Navigation */}
@@ -19,9 +32,11 @@ export default function Home() {
                 <a href="/menu" className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Menu</a>
                 <a href="#testimonials" className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Testimonials</a>
                 <a href="#contact" className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                <CartIcon />
               </div>
             </div>
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center space-x-4">
+              <CartIcon />
               <button className="text-gray-700 dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -64,11 +79,11 @@ export default function Home() {
       <section id="features" className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
+            <h2 className="text-3xl text-gray-900 dark:text-white mb-4 font-rocknroll uppercase">
               Why Choose Moshi Ramen?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              We're committed to delivering an authentic Japanese ramen experience
+              We&apos;re committed to delivering an authentic Japanese ramen experience
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -112,7 +127,12 @@ export default function Home() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Rich pork bone broth with tender chashu pork, soft-boiled egg, and fresh vegetables.</p>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">$12.99</span>
-                  <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors">Order</button>
+                  <button 
+                    onClick={() => handleAddToCart('RAM-001')}
+                    className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
@@ -125,7 +145,12 @@ export default function Home() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Spicy miso broth with ground pork, bean sprouts, and a perfect kick of heat.</p>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">$11.99</span>
-                  <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors">Order</button>
+                  <button 
+                    onClick={() => handleAddToCart('RAM-002')}
+                    className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
@@ -138,7 +163,12 @@ export default function Home() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Classic soy sauce based broth with seaweed, bamboo shoots, and green onions.</p>
                 <div className="flex justify-between items-center">
                   <span className="text-2xl font-bold text-orange-600 dark:text-orange-400">$10.99</span>
-                  <button className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors">Order</button>
+                  <button 
+                    onClick={() => handleAddToCart('RAM-003')}
+                    className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg transition-colors"
+                  >
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>
@@ -165,7 +195,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "The best ramen I've had outside of Japan! The tonkotsu broth is incredibly rich and flavorful. I come here at least twice a week."
+                &ldquo;The best ramen I&apos;ve had outside of Japan! The tonkotsu broth is incredibly rich and flavorful. I come here at least twice a week.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-orange-200 dark:bg-orange-800 rounded-full flex items-center justify-center mr-3">
@@ -184,7 +214,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "Amazing spicy miso ramen! The perfect balance of heat and flavor. The noodles are perfectly cooked every time."
+                &ldquo;Amazing spicy miso ramen! The perfect balance of heat and flavor. The noodles are perfectly cooked every time.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-orange-200 dark:bg-orange-800 rounded-full flex items-center justify-center mr-3">
@@ -203,7 +233,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                "Authentic Japanese experience right here in the city. The shoyu ramen reminds me of my trip to Tokyo. Highly recommended!"
+                &ldquo;Authentic Japanese experience right here in the city. The shoyu ramen reminds me of my trip to Tokyo. Highly recommended!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-orange-200 dark:bg-orange-800 rounded-full flex items-center justify-center mr-3">
@@ -227,7 +257,7 @@ export default function Home() {
               Get In Touch
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              We'd love to hear from you
+              We&apos;d love to hear from you
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
