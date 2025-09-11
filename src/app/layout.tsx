@@ -14,6 +14,7 @@ import {
   DotGothic16
 } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -100,7 +101,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rocknRollOne.variable} ${notoSansJP.variable} ${notoSerifJP.variable} ${kosugi.variable} ${kosugiMaru.variable} ${mPlus1p.variable} ${mPlusRounded1c.variable} ${reggaeOne.variable} ${trainOne.variable} ${dotGothic16.variable} antialiased`}
       >
-        {children}
+        <CartProvider>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

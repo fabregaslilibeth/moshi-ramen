@@ -2,10 +2,13 @@
 
 import { useState } from 'react';
 import { products, categories, getProductsByCategory, type Product } from '@/data/products';
+import { useCartContext } from '@/context/CartContext';
+import { CartIcon } from '@/components/CartIcon';
 
 export default function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const { addToCart, getItemQuantity } = useCartContext();
 
   const filteredProducts = getProductsByCategory(selectedCategory).filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -16,14 +19,24 @@ export default function MenuPage() {
     return `$${price.toFixed(2)}`;
   };
 
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50 dark:from-gray-900 dark:to-gray-800">
       {/* Header */}
       <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-orange-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex justify-between items-center mb-4">
+            <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+              🍜 Moshi Ramen
+            </div>
+            <CartIcon />
+          </div>
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-rocknroll">
-              🍜 Our Menu
+              Our Menu
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Discover our authentic Japanese ramen and traditional dishes, crafted with the finest ingredients and time-honored techniques.
@@ -107,8 +120,11 @@ export default function MenuPage() {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                  Add to Cart
+                <button 
+                  onClick={() => handleAddToCart(product)}
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                >
+                  Add to Cart {getItemQuantity(product.sku) > 0 && `(${getItemQuantity(product.sku)})`}
                 </button>
               </div>
             </div>
